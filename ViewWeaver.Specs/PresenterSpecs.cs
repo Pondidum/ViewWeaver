@@ -44,7 +44,8 @@ namespace ViewWeaver.Specs
 
         Establish context = () => view = new ViewOneEvent();
         Because of = () => ex = Catch.Exception(() => presenter = new PresenterOnePublicHandler(view));
-        It should_not_connect_any_subscribers = () => presenter.View.Subscribers().Count().ShouldEqual(0);
+        It should_not_connect_any_subscribers = () => view.Subscribers().Count().ShouldEqual(0);
+        It should_throw_an_event_handler_not_found_exception = () => ex.ShouldBeOfType<EventHandlerNotFoundException>();
     }
 
     public class When_a_presenter_is_disposed : SpecBase

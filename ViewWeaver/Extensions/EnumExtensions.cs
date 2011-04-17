@@ -7,8 +7,8 @@ namespace ViewWeaver.Extensions
 
         public static bool Has<T>(this T self, T value) where T : struct
         {
-            Check.Self(self);
-            Check.Self(value, "value");
+            Check.Enum(self);
+            Check.Enum(value, "value");
 
             var intSelf = (int)(object)self;
             var intValue = (int)(object)value;
@@ -18,7 +18,7 @@ namespace ViewWeaver.Extensions
 
         public static bool HasAll<T>(this T self, params T[] values) where T : struct
         {
-            Check.Self(self);
+            Check.Enum(self);
             Check.Collection(values, "values");
 
             return values.All(v => self.Has(v));
@@ -26,7 +26,7 @@ namespace ViewWeaver.Extensions
 
         public static bool HasAny<T>(this T self, params T[] values) where T : struct
         {
-            Check.Self(self);
+            Check.Enum(self);
             Check.Collection(values, "values");
 
             return values.Any(v => self.Has(v));
@@ -34,7 +34,7 @@ namespace ViewWeaver.Extensions
 
         public static T Add<T>(this T self, params T[] values) where T : struct
         {
-            Check.Self(self);
+            Check.Enum(self);
             Check.Collection(values, "values");
 
 
@@ -48,7 +48,7 @@ namespace ViewWeaver.Extensions
 
         public static T Remove<T>(this T self, params T[] values) where T : struct
         {
-            Check.Self(self);
+            Check.Enum(self);
             Check.Collection(values, "values");
 
             var result = (int)(object)self;
