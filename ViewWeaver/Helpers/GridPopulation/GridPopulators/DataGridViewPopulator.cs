@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ViewWeaver.Extensions;
@@ -22,7 +23,7 @@ namespace ViewWeaver.Helpers.GridPopulation.GridPopulators
             dgv.Rows.Clear();
         }
 
-        public void AddColumn(object grid, string name, string caption, Type datatype, string format)
+        public void AddColumn(object grid, string name, string caption, Type dataType, string format)
         {
             var dgv = (DataGridView)grid;
 
@@ -30,7 +31,8 @@ namespace ViewWeaver.Helpers.GridPopulation.GridPopulators
                                 {
                                     HeaderText = caption,
                                     Name = name,
-                                    DefaultCellStyle = new DataGridViewCellStyle {Format = format}
+                                    CellTemplate = CellTemplateFromDataType(dataType),
+                                    DefaultCellStyle = new DataGridViewCellStyle { Format = format }
                                 });
 
         }
@@ -46,5 +48,24 @@ namespace ViewWeaver.Helpers.GridPopulation.GridPopulators
             dgv.Rows.Add(row);
         }
 
+        private DataGridViewCell CellTemplateFromDataType(Type type)
+        {
+            if (type.IsSubclassOf(typeof(DataGridViewCell)))
+            {
+                return (DataGridViewCell)Activator.CreateInstance(type);
+            }
+
+            if (type == typeof(bool))
+                return new DataGridViewCheckBoxCell();
+
+            if (type.IsEnum)
+                return new DataGridViewComboBoxCell();
+
+            if (type.IsSubclassOf(typeof(Image)))
+                return new DataGridViewImageCell();
+
+            return new DataGridViewTextBoxCell();
+
+        }
     }
 }

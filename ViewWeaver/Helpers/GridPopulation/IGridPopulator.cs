@@ -7,7 +7,7 @@ namespace ViewWeaver.Helpers.GridPopulation
         void ClearColumns(object grid);
         void ClearRows(object grid);
 
-        void AddColumn(object grid, string name, string caption, Type datatype, string format);
+        void AddColumn(object grid, string name, string caption, Type dataType, string format);
         void AddRow(object grid, object rowData, params object[] columnData);
     }
 }
