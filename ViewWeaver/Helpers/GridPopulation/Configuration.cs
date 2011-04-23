@@ -6,12 +6,10 @@ namespace ViewWeaver.Helpers.GridPopulation
 {
     internal class Configuration
     {
-        public bool CreateMissingColumns { get; internal set; }
         public bool ClearOnPopulate { get; internal set; }
 
         internal Configuration()
         {
-            CreateMissingColumns = false;
             ClearOnPopulate = true;
         }
     }

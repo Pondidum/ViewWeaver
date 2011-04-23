@@ -18,12 +18,6 @@ namespace ViewWeaver.Helpers.GridPopulation
             return this;
         }
 
-        public FluentConfiguration<T> CreateMissingColumns()
-        {
-            _config.CreateMissingColumns = true;
-            return this;
-        }
-
         public FluentConfiguration<T> Columns(int index, Func<T, Object> creator)
         {
             _config.ColumnMappings.Add(index, creator);

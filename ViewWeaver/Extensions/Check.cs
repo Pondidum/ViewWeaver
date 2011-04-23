@@ -44,6 +44,14 @@ namespace ViewWeaver.Extensions
             }
         }
 
+        internal static void Configuration(object config, string format, params object[] args)
+        {
+            if (config == null)
+            {
+                throw new InvalidConfigurationException(string.Format(format, args));
+            }
+        }
+
     }
 
 }
