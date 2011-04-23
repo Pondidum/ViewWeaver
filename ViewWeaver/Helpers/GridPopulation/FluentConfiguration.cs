@@ -5,42 +5,35 @@ namespace ViewWeaver.Helpers.GridPopulation
 {
     public sealed class FluentConfiguration<T>
     {
-        private bool _automaticColumns;
-        private bool _createMissingColumns;
-        private IDictionary<int, Func<T, Object>> _columns;
+        private readonly Configuration<T> _config;
 
-        internal FluentConfiguration()
+        internal FluentConfiguration(Configuration<T> config)
         {
-            _columns = new Dictionary<int, Func<T, object>>();
+            _config = config;
         }
 
         public FluentConfiguration<T> AutomaticColumns()
         {
-            _automaticColumns = true;
+            _config.ColumnMappings = ColumnMapper.Map<T>();
             return this;
         }
 
         public FluentConfiguration<T> CreateMissingColumns()
         {
-            _createMissingColumns = true;
+            _config.CreateMissingColumns = true;
             return this;
         }
 
         public FluentConfiguration<T> Columns(int index, Func<T, Object> creator)
         {
+            _config.ColumnMappings.Add(index, creator);
             return this;
         }
 
-        internal Configuration<T> ToConfiguration()
+        public FluentConfiguration<T> ClearOnPopulate()
         {
-            if (_automaticColumns)
-            {
-                _columns.Clear();
-                _columns = ColumnMapper.Map<T>();
-            }
-
-            return new Configuration<T>(_columns, _createMissingColumns);
+            _config.ClearOnPopulate = true;
+            return this;
         }
-
     }
 }

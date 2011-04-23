@@ -4,21 +4,25 @@ using System.Linq;
 
 namespace ViewWeaver.Helpers.GridPopulation
 {
-    internal sealed class Configuration<T>
+    internal class Configuration
     {
-        private IDictionary<int, Func<T, Object>> _columnMappings;
+        public bool CreateMissingColumns { get; internal set; }
+        public bool ClearOnPopulate { get; internal set; }
 
-        public IDictionary<int, Func<T, Object>> ColumnMappings
+        internal Configuration()
         {
-            get { return _columnMappings.ToDictionary(d => d.Key, d=> d.Value ); }
-            private set { _columnMappings = value; }
+            CreateMissingColumns = false;
+            ClearOnPopulate = true;
         }
-        public bool CreateMissingColumns { get; private set; }
+    }
 
-        internal Configuration(IDictionary<int, Func<T, Object>> columnMappings, bool createMissingColumns)
+    internal sealed class Configuration<T> : Configuration
+    {
+        public IDictionary<int, Func<T, Object>> ColumnMappings { get; internal set; }
+
+        internal Configuration() : base()
         {
-            ColumnMappings = columnMappings;
-            CreateMissingColumns = createMissingColumns;
+            ColumnMappings = new Dictionary<int, Func<T, object>>();
         }
     }
 }

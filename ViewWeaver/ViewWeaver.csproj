@@ -55,12 +55,15 @@
     <Compile Include="Helpers\GridPopulation\ColumnMapper.cs" />
     <Compile Include="Helpers\GridPopulation\Configuration.cs" />
     <Compile Include="Helpers\GridPopulation\FluentConfiguration.cs" />
+    <Compile Include="Helpers\GridPopulation\GridHandler.cs" />
+    <Compile Include="Helpers\GridPopulation\GridHandlerImpl.cs" />
     <Compile Include="Helpers\GridPopulation\GridPopulators\DataGridViewPopulator.cs" />
     <Compile Include="Helpers\GridPopulation\IGridPopulator.cs" />
     <Compile Include="Interfaces\ILongAction.cs" />
     <Compile Include="Interfaces\IModalView.cs" />
     <Compile Include="Interfaces\IView.cs" />
     <Compile Include="Helpers\ControlState.cs" />
+    <Compile Include="InvalidConfigurationException.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
