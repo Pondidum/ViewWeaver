@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ViewWeaver.Helpers.GridPopulation
@@ -23,9 +23,9 @@ namespace ViewWeaver.Helpers.GridPopulation
              return _handler.Setup<T>(grid);
          }
 
-         public static void Populate<T>(Control grid, IEnumerable collection)
+         public static void Populate<T>(Control grid, IEnumerable<T> collection)
          {
-             _handler.Populate<T>(grid, collection);
+             _handler.Populate(grid, collection);
          }
 
     }

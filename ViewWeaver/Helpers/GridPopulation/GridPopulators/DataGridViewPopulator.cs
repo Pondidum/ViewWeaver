@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Helpers.GridPopulation.GridPopulators
 {
@@ -20,9 +16,10 @@ namespace ViewWeaver.Helpers.GridPopulation.GridPopulators
         public void AddRow(object grid, object rowData, params object[] columnData)
         {
             var dgv = (DataGridView)grid;
-
             var row = new DataGridViewRow();
-            row.SetValues(columnData);
+
+            row.CreateCells(dgv);
+            row.SetValues(columnData.ToArray());
             row.Tag = rowData;
 
             dgv.Rows.Add(row);

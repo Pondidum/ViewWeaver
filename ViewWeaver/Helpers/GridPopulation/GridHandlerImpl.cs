@@ -34,7 +34,7 @@ namespace ViewWeaver.Helpers.GridPopulation
             return new FluentConfiguration<T>(config);
         }
 
-        public void Populate<T>(Control grid, IEnumerable collection)
+        public void Populate<T>(Control grid, IEnumerable<T> collection)
         {
             Check.Self(grid, "grid");
 
@@ -49,20 +49,20 @@ namespace ViewWeaver.Helpers.GridPopulation
                 populator.ClearRows(grid);
             }
 
-            var enumerator = (IEnumerator<T>)collection.GetEnumerator();
+            var enumerator = collection.GetEnumerator();
 
             while (enumerator.MoveNext())
             {
                 var current = enumerator.Current;
 
                 var maxColumn = config.ColumnMappings.Max(m => m.Key);
-                var row = new object[maxColumn];
+                var row = new object[maxColumn + 1];
 
                 foreach (var mapping in config.ColumnMappings)
                 {
                     row[mapping.Key] = mapping.Value.Invoke(current);
                 }
-                
+
                 populator.AddRow(grid, current, row);
             }
         }
