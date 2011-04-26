@@ -2,6 +2,7 @@ namespace ViewWeaver.Interfaces
 {
     public interface  IView
     {
-        void Show();
+        void BeginLongAction();
+        void EndLongAction();
     }
 }

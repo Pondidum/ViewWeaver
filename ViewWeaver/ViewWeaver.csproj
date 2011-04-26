@@ -59,8 +59,8 @@
     <Compile Include="Helpers\GridPopulation\GridHandlerImpl.cs" />
     <Compile Include="Helpers\GridPopulation\GridPopulators\DataGridViewPopulator.cs" />
     <Compile Include="Helpers\GridPopulation\IGridPopulator.cs" />
-    <Compile Include="Interfaces\ILongAction.cs" />
     <Compile Include="Interfaces\IModalView.cs" />
+    <Compile Include="Interfaces\ISubView.cs" />
     <Compile Include="Interfaces\IView.cs" />
     <Compile Include="Helpers\ControlState.cs" />
     <Compile Include="InvalidConfigurationException.cs" />

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using ViewWeaver.Extensions;
 using ViewWeaver.Interfaces;
 
 namespace ViewWeaver
@@ -19,7 +20,7 @@ namespace ViewWeaver
 
         public Presenter(TView view)
         {
-            if (view  == null) throw new ArgumentNullException("view");
+            Check.Argument(view, "view");
 
             _view = view;
             _eventData = new Dictionary<EventInfo, Delegate>();

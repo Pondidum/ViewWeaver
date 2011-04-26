@@ -18,6 +18,11 @@ namespace ViewWeaver.Extensions
             }
         }
 
+        internal static void Argument(object argument, string name)
+        {
+            Check.Self(argument, name);
+        }
+
         internal static void Collection(ICollection collection)
         {
             Check.Collection(collection, "collection");

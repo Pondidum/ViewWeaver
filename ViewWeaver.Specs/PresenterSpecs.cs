@@ -66,12 +66,16 @@ namespace ViewWeaver.Specs
     public class ViewNoEvents : IView
     {
         public void Show() { }
+        public void BeginLongAction() { }
+        public void EndLongAction() { }
     }
 
     public class ViewOneEvent : IView
     {
         public event EventAction ButtonClicked;
         public void Show() { }
+        public void BeginLongAction() { }
+        public void EndLongAction() { }
 
         public Delegate[] Subscribers()
         {
