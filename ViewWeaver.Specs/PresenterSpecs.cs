@@ -34,7 +34,7 @@ namespace ViewWeaver.Specs
 
         Establish context = () => view = new ViewOneEvent();
         Because of = () => presenter = new PresenterOnePrivateHandler(view);
-        It should_connect_one_subscriber = () => presenter.View.Subscribers().Count().ShouldEqual(1);
+        It should_connect_one_subscriber = () => view.Subscribers().Count().ShouldEqual(1);
     }
 
     public class When_passed_a_view_with_a_matching_public_event_handler_in_the_presenter : SpecBase
@@ -59,18 +59,27 @@ namespace ViewWeaver.Specs
                                     presenter = new PresenterOnePrivateHandler(view);
                                 };
         Because of = () => presenter.Dispose();
-        It should_disconnect_subscribed_events = () => presenter.View.Subscribers().Count().ShouldEqual(0);
+        It should_disconnect_subscribed_events = () => view.Subscribers().Count().ShouldEqual(0);
     }
 
 
-    public class ViewNoEvents : IView
+    public interface IViewNoEvents : IView {}
+
+    public class ViewNoEvents : IViewNoEvents
     {
         public void Show() { }
         public void BeginLongAction() { }
         public void EndLongAction() { }
     }
 
-    public class ViewOneEvent : IView
+
+
+    public interface IViewOneEvent : IView
+    {
+         event EventAction ButtonClicked;
+    }
+
+    public class ViewOneEvent : IViewOneEvent
     {
         public event EventAction ButtonClicked;
         public void Show() { }
@@ -88,15 +97,15 @@ namespace ViewWeaver.Specs
         }
     }
 
-    public class PresenterOnePrivateHandler : Presenter<ViewOneEvent>
+    public class PresenterOnePrivateHandler : Presenter<IViewOneEvent>
     {
-        public PresenterOnePrivateHandler(ViewOneEvent view) : base(view) { }
+        public PresenterOnePrivateHandler(IViewOneEvent view) : base(view) { }
         private void OnButtonClicked() { }
     }
 
-    public class PresenterOnePublicHandler : Presenter<ViewOneEvent>
+    public class PresenterOnePublicHandler : Presenter<IViewOneEvent>
     {
-        public PresenterOnePublicHandler(ViewOneEvent view) : base(view) { }
+        public PresenterOnePublicHandler(IViewOneEvent view) : base(view) { }
         public void OnButtonClicked() { }
     }
 }
