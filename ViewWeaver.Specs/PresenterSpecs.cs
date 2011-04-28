@@ -62,8 +62,20 @@ namespace ViewWeaver.Specs
         It should_disconnect_subscribed_events = () => view.Subscribers().Count().ShouldEqual(0);
     }
 
+    public class When_a_presenter_and_view_have_events_and_handlers_not_defined_in_the_interface : SpecBase
+    {
+        static ViewTwoEvents view;
+        static PresenterTwoHandlers presenter;
 
-    public interface IViewNoEvents : IView {}
+        Establish context = () => view = new ViewTwoEvents();
+        Because of = () => presenter = new PresenterTwoHandlers(view);
+
+        It should_connect_the_interface_event = () => view.ButtonClickedSubscribers().ShouldEqual(1) ;
+        It should_not_connect_the_non_interface_event = () => view.NotDefinedInInterfaceSubscribers().ShouldEqual(0) ;
+    }
+
+
+    public interface IViewNoEvents : IView { }
 
     public class ViewNoEvents : IViewNoEvents
     {
@@ -76,7 +88,7 @@ namespace ViewWeaver.Specs
 
     public interface IViewOneEvent : IView
     {
-         event EventAction ButtonClicked;
+        event EventAction ButtonClicked;
     }
 
     public class ViewOneEvent : IViewOneEvent
@@ -107,5 +119,36 @@ namespace ViewWeaver.Specs
     {
         public PresenterOnePublicHandler(IViewOneEvent view) : base(view) { }
         public void OnButtonClicked() { }
+    }
+
+
+
+    public class ViewTwoEvents : IViewOneEvent
+    {
+        public event EventAction ButtonClicked;
+        public event EventAction NotDefinedInInterface;
+
+        public void BeginLongAction() { }
+        public void EndLongAction() { }
+
+        public int ButtonClickedSubscribers()
+        {
+            if (ButtonClicked == null) return 0;
+            return ButtonClicked.GetInvocationList().Count();
+        }
+
+        public  int NotDefinedInInterfaceSubscribers()
+        {
+            if (NotDefinedInInterface == null) return 0;
+            return NotDefinedInInterface.GetInvocationList().Count();
+        }
+    }
+
+    public class PresenterTwoHandlers : Presenter<IViewOneEvent>
+    {
+        public PresenterTwoHandlers(IViewOneEvent view) : base(view) { }
+
+        private void OnButtonClicked() { }
+        private void OnNotDefinedInInterface() { }
     }
 }
