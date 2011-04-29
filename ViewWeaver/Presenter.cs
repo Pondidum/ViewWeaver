@@ -7,7 +7,7 @@ using ViewWeaver.Interfaces;
 
 namespace ViewWeaver
 {
-    public class Presenter<TView> : IDisposable where TView : class, IView
+    public class Presenter<TView> : IDisposable where TView : IView
     {
         public TView View { get { return _view; }}
 

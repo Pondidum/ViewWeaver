@@ -77,12 +77,7 @@ namespace ViewWeaver.Specs
 
     public interface IViewNoEvents : IView { }
 
-    public class ViewNoEvents : IViewNoEvents
-    {
-        public void Show() { }
-        public void BeginLongAction() { }
-        public void EndLongAction() { }
-    }
+    public class ViewNoEvents : IViewNoEvents { }
 
 
 
@@ -94,9 +89,6 @@ namespace ViewWeaver.Specs
     public class ViewOneEvent : IViewOneEvent
     {
         public event EventAction ButtonClicked;
-        public void Show() { }
-        public void BeginLongAction() { }
-        public void EndLongAction() { }
 
         public Delegate[] Subscribers()
         {
@@ -127,9 +119,6 @@ namespace ViewWeaver.Specs
     {
         public event EventAction ButtonClicked;
         public event EventAction NotDefinedInInterface;
-
-        public void BeginLongAction() { }
-        public void EndLongAction() { }
 
         public int ButtonClickedSubscribers()
         {
