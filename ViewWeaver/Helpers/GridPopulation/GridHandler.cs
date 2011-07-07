@@ -23,6 +23,12 @@ namespace ViewWeaver.Helpers.GridPopulation
              return _handler.Setup<T>(grid);
          }
 
+
+		public static void Initialise(Control grid)
+		{
+			_handler.Initialise(grid);
+		}
+
          public static void Populate<T>(Control grid, IEnumerable collection)
          {
              _handler.Populate<T>(grid, collection);
