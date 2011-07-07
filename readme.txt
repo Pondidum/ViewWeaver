@@ -1,0 +1,2 @@
+This is a lightwieght templating engine for .net.  Ideal for generating email text etc.
+All code is licensed under the Creative Commons Attribution-Share Alike 2.0. See here for more detials: http://creativecommons.org/licenses/by-sa/2.0/uk/
