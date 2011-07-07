@@ -34,29 +34,39 @@ namespace ViewWeaver.Helpers.GridPopulation
             return new FluentConfiguration<T>(config);
         }
 
-        public void Populate<T>(Control grid, IEnumerable collection)
+        public void Populate<T>(Control grid, IEnumerable<T> collection)
         {
             Check.Self(grid, "grid");
 
             var config = _grids[grid] as Configuration<T>;
             var populator = _populators[grid.GetType()];
 
-            if (config == null) throw new InvalidConfigurationException(string.Format("{0} has not been setup", grid.Name));
-            if (populator == null) throw new InvalidConfigurationException(string.Format("There is no populator setup for grids of type '{0}'", grid.GetType().Name));
+            Check.Configuration("{0} has not been setup", grid.Name);
+            Check.Configuration("There is no populator setup for grids of type '{0}'", grid.GetType().Name);
 
-            if (config.ClearOnPopulate) populator.ClearRows(grid);
+            if (config.ClearOnPopulate)
+            {
+                populator.ClearRows(grid);
+            }
 
-            var enumerator = (IEnumerator<T>)collection.GetEnumerator();
+            var enumerator = collection.GetEnumerator();
 
             while (enumerator.MoveNext())
             {
                 var current = enumerator.Current;
-                var row = config.ColumnMappings.Select(mapping => mapping.Value.Invoke(current));
+
+                var maxColumn = config.ColumnMappings.Max(m => m.Key);
+                var row = new object[maxColumn + 1];
+
+                foreach (var mapping in config.ColumnMappings)
+                {
+                    row[mapping.Key] = mapping.Value.Invoke(current);
+                }
 
                 populator.AddRow(grid, current, row);
             }
         }
-        
+
     }
 
 }

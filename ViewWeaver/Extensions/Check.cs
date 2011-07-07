@@ -18,6 +18,11 @@ namespace ViewWeaver.Extensions
             }
         }
 
+        internal static void Argument(object argument, string name)
+        {
+            Check.Self(argument, name);
+        }
+
         internal static void Collection(ICollection collection)
         {
             Check.Collection(collection, "collection");
@@ -41,6 +46,14 @@ namespace ViewWeaver.Extensions
             if (!self.GetType().IsEnum)
             {
                 throw new ArgumentException(string.Format("{0} is not an Enum.", name), name);
+            }
+        }
+
+        internal static void Configuration(object config, string format, params object[] args)
+        {
+            if (config == null)
+            {
+                throw new InvalidConfigurationException(string.Format(format, args));
             }
         }
 
