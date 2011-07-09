@@ -44,6 +44,12 @@ namespace ViewWeaver.Helpers.GridPopulation
 			Check.Configuration("{0} has not been setup", grid.Name);
 			Check.Configuration("There is no populator setup for grids of type '{0}'", grid.GetType().Name);
 
+			populator.ClearColumns(grid);
+
+			foreach (var mapping in config.ColumnMappings)
+			{
+				populator.AddColumn(grid, mapping);
+			}
 		}
 
 		public void Populate<T>(Control grid, IEnumerable<T> collection)
@@ -67,12 +73,12 @@ namespace ViewWeaver.Helpers.GridPopulation
 
 				foreach (var current in collection)
 				{
-					var maxColumn = config.ColumnMappings.Max(m => m.Key);
+					var maxColumn = config.ColumnMappings.Max(m => m.Index);
 					var row = new object[maxColumn + 1];
 
 					foreach (var mapping in config.ColumnMappings)
 					{
-						row[mapping.Key] = mapping.Value.Invoke(current);
+						row[mapping.Index] = mapping.Populate(current);
 					}
 
 					populator.AddRow(grid, current, row);
