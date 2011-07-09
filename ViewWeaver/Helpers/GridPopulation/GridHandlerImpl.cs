@@ -46,7 +46,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 
 		}
 
-		public void Populate<T>(Control grid, IEnumerable collection)
+		public void Populate<T>(Control grid, IEnumerable<T> collection)
 		{
 			Check.Self(grid, "grid");
 
@@ -65,12 +65,8 @@ namespace ViewWeaver.Helpers.GridPopulation
 					populator.ClearRows(grid);
 				}
 
-				var enumerator = (IEnumerator<T>)collection.GetEnumerator();
-
-				while (enumerator.MoveNext())
+				foreach (var current in collection)
 				{
-					var current = enumerator.Current;
-
 					var maxColumn = config.ColumnMappings.Max(m => m.Key);
 					var row = new object[maxColumn + 1];
 
@@ -81,6 +77,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 
 					populator.AddRow(grid, current, row);
 				}
+
 			}
 			finally
 			{
