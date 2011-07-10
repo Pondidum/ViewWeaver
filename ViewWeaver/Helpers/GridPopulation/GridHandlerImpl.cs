@@ -29,7 +29,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 			Check.Self(grid, "grid");
 
 			var config = new Configuration<T>();
-
+			
 			_grids[grid] = config;
 			return new FluentConfiguration<T>(config);
 		}
@@ -41,7 +41,12 @@ namespace ViewWeaver.Helpers.GridPopulation
 			var config = _grids[grid] as Configuration<T>;
 			var populator = _populators[grid.GetType()];
 
-			Check.Configuration("{0} has not been setup", grid.Name);
+			if (config == null)
+			{
+				config = new Configuration<T>();
+				_grids[grid] = config;
+			}
+
 			Check.Configuration("There is no populator setup for grids of type '{0}'", grid.GetType().Name);
 
 			populator.ClearColumns(grid);
@@ -69,6 +74,11 @@ namespace ViewWeaver.Helpers.GridPopulation
 				if (config.ClearOnPopulate)
 				{
 					populator.ClearRows(grid);
+				}
+
+				if (config.InitialiseOnPopulate || (config.InitialiseOnFirstPopulate && !config.HasBeenPopulated ))
+				{
+					Initialise<T>(grid);
 				}
 
 				foreach (var current in collection)

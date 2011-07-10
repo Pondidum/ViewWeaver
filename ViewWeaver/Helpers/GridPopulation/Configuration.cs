@@ -7,10 +7,21 @@ namespace ViewWeaver.Helpers.GridPopulation
 	internal class Configuration
 	{
 		public bool ClearOnPopulate { get; internal set; }
+		public bool InitialiseOnPopulate { get; internal set; }
+		public bool InitialiseOnFirstPopulate { get; internal set; }
+		internal bool HasBeenPopulated { get; set; }
 
 		internal Configuration()
 		{
+			SetDefaults();
+		}
+
+		public void SetDefaults()
+		{
 			ClearOnPopulate = true;
+			InitialiseOnPopulate = false;
+			InitialiseOnFirstPopulate = false;
+			HasBeenPopulated = false;
 		}
 	}
 

@@ -9,6 +9,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 		internal FluentConfiguration(Configuration<T> config)
 		{
 			_config = config;
+			_config.ClearOnPopulate = false;
 		}
 
 		public FluentConfiguration<T> AutomaticColumns()
@@ -35,5 +36,18 @@ namespace ViewWeaver.Helpers.GridPopulation
 			_config.ClearOnPopulate = true;
 			return this;
 		}
+
+		public FluentConfiguration<T> InitialiseOnPopulate()
+		{
+			_config.InitialiseOnPopulate = true;
+			return this;
+		}
+
+		public FluentConfiguration<T> InitialiseOnFirstPopulate()
+		{
+			_config.InitialiseOnFirstPopulate = true;
+			return this;
+		}
+
 	}
 }
