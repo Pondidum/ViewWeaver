@@ -1,29 +1,77 @@
-using System.Linq;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ViewWeaver.Helpers.GridPopulation.GridPopulators
 {
-    public class DataGridViewPopulator : IGridPopulator
-    {
-     
-        public void ClearRows(object grid)
-        {
-            var dgv = (DataGridView)grid;
+	public class DataGridViewPopulator : IGridPopulator
+	{
+		private static readonly Cache<Type, Func<DataGridViewCell>> CellTypeMap;
 
-            dgv.Rows.Clear();
-        }
+		static DataGridViewPopulator()
+		{
+			CellTypeMap = new Cache<Type, Func<DataGridViewCell>>();
+			CellTypeMap.OnMissing = type => () => new DataGridViewTextBoxCell();
 
-        public void AddRow(object grid, object rowData, params object[] columnData)
-        {
-            var dgv = (DataGridView)grid;
-            var row = new DataGridViewRow();
+			CellTypeMap[typeof(Boolean)] = () => new DataGridViewCheckBoxCell();
+			CellTypeMap[typeof(String)] = () => new DataGridViewTextBoxCell();
+			CellTypeMap[typeof(Image)] = () => new DataGridViewImageCell();
+			CellTypeMap[typeof(Enum)] = () => new DataGridViewComboBoxCell();
+		}
 
-            row.CreateCells(dgv);
-            row.SetValues(columnData.ToArray());
-            row.Tag = rowData;
+		public void ClearColumns(object grid)
+		{
+			var dgv = (DataGridView)grid;
 
-            dgv.Rows.Add(row);
-        }
+			dgv.Columns.Clear();
+		}
 
-    }
+		public void AddColumn(object grid, ColumnMapping mapping)
+		{
+			var dgv = (DataGridView)grid;
+
+			var column = new DataGridViewColumn
+							{
+								DisplayIndex = mapping.Index,
+								Name = mapping.Name,
+								HeaderText = mapping.Title,
+								ValueType = mapping.DataType,
+								CellTemplate = CellTypeMap[mapping.DataType].Invoke(),
+							};
+
+			dgv.Columns.Add(column);
+		}
+
+		public void ClearRows(object grid)
+		{
+			var dgv = (DataGridView)grid;
+
+			dgv.Rows.Clear();
+		}
+
+		public void AddRow(object grid, object rowData, params object[] columnData)
+		{
+			var dgv = (DataGridView)grid;
+
+			var row = new DataGridViewRow();
+			row.CreateCells(dgv);
+			row.SetValues(columnData);
+			
+			row.Tag = rowData;
+
+			dgv.Rows.Add(row);
+		}
+
+		public void BeginEdit(object grid)
+		{
+			var dgv = (DataGridView)grid;
+			dgv.SuspendLayout();
+		}
+
+		public void EndEdit(object grid)
+		{
+			var dgv = (DataGridView)grid;
+			dgv.ResumeLayout();
+		}
+	}
 }

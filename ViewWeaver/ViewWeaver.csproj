@@ -48,11 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache.cs" />
     <Compile Include="EventAction.cs" />
     <Compile Include="EventHandlerNotFoundException.cs" />
     <Compile Include="Extensions\Check.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapper.cs" />
+    <Compile Include="Helpers\GridPopulation\ColumnMapping.cs" />
     <Compile Include="Helpers\GridPopulation\Configuration.cs" />
     <Compile Include="Helpers\GridPopulation\FluentConfiguration.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandler.cs" />
