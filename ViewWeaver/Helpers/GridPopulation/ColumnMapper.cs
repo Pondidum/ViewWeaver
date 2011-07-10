@@ -11,7 +11,10 @@ namespace ViewWeaver.Helpers.GridPopulation
 		public static IList<ColumnMapping<T>> Map<T>()
 		{
 			var allProperties = typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public);
-			var readableProperties = allProperties.Where(p => p.CanRead & !p.GetIndexParameters().Any());
+			var readableProperties = allProperties.Where(p => p.CanRead &&
+															  p.GetGetMethod() != null &&
+															  p.GetGetMethod().IsPublic &&
+															  !p.GetIndexParameters().Any());
 
 			var map = new List<ColumnMapping<T>>();
 

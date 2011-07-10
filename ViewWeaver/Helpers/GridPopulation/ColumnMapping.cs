@@ -10,7 +10,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 		public Type DataType { get; set; }
 	}
 
-	internal class ColumnMapping<T> : ColumnMapping
+	public class ColumnMapping<T> : ColumnMapping
 	{
 		public Func<T, Object> Populator { private get; set; }
 

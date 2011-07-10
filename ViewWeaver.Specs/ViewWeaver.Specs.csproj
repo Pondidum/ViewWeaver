@@ -57,6 +57,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\ControlStateSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs.cs" />
     <Compile Include="PresenterSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecBase.cs" />
