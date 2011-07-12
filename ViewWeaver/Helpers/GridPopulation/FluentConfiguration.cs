@@ -8,6 +8,8 @@ namespace ViewWeaver.Helpers.GridPopulation
 
 		internal FluentConfiguration(Configuration<T> config)
 		{
+			if (config == null) throw new ArgumentNullException("config");
+
 			_config = config;
 			_config.ClearOnPopulate = false;
 		}
@@ -18,7 +20,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 			return this;
 		}
 
-		public FluentConfiguration<T> Columns(int index, String name, String title, Type type, Func<T, Object> populator)
+		public FluentConfiguration<T> WithColumn(int index, String name, String title, Type type, Func<T, Object> populator)
 		{
 			_config.ColumnMappings.Add(new ColumnMapping<T>
 										{
