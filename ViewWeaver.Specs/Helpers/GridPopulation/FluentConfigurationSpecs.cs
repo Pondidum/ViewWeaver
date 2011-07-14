@@ -37,4 +37,18 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation
 		It should_only_have_one_mapping = () => config.ColumnMappings.Count.ShouldEqual(1);
 	}
 
+	public class When_adding_a_column_mapping_automatically : FluentConfigSpec<OnePublicProperty>
+	{
+		Establish context = () => SetupConfiguration();
+		Because of = () => fluent.AutomaticColumns();
+		It should_only_have_one_mapping = () => config.ColumnMappings.Count.ShouldEqual(1);
+	}
+
+	public class When_adding_an_automatic_and_manual_column_mapping : FluentConfigSpec<OnePublicProperty>
+	{
+		Establish context = () => SetupConfiguration();
+		Because of = () => fluent.AutomaticColumns().WithColumn(2, "manual", "manual", typeof (string), x => x.Test);
+		It should_have_two_mappings = () => config.ColumnMappings.Count.ShouldEqual(2);
+	}
+
 }
