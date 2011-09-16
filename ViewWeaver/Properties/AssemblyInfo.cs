@@ -34,4 +34,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: InternalsVisibleTo("ViewWeaver.Specs, PublicKey=0024000004800000940000000602000000240000525341310004000001000100d361f6b7fb155d8063c6ace2f2d931e8a867f0ac64f077990ad600ec8e5a3f12899231d938ba554f6c80a1dd28937b90ab06dbad2fc22047b53041a591983f844f0acd50684f08821a47463e0c4c05b041c6f08573fda5dcd86801d7d570fa7d56d60a4e9bd81120c3945911a8ab904f2d38c168843f4ea24ba2606d89013d92")]
+[assembly: InternalsVisibleTo("ViewWeaver.Specs")]

@@ -31,14 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\ViewWeaver.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Machine.Specifications">
-      <HintPath>..\..\sdk\PreCompiled\Machine.Specifications.dll</HintPath>
+      <HintPath>..\..\sdk\compiled\Machine.Specifications.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,11 +68,6 @@
       <Project>{5D04BB7A-4E6C-4B70-9B63-8ACDAB8E0DB2}</Project>
       <Name>ViewWeaver</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\ViewWeaver.snk">
-      <Link>ViewWeaver.snk</Link>
-    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
