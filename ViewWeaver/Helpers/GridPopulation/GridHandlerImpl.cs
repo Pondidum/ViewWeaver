@@ -18,15 +18,17 @@ namespace ViewWeaver.Helpers.GridPopulation
 			_populators = new Dictionary<Type, IGridPopulator>();
 		}
 
-		public void AddGridPopulator(Type type, IGridPopulator populator)
+		public void AddGridPopulator(Type gridType, IGridPopulator populator)
 		{
-			Check.Self(populator, "populator");
-			_populators.Add(type, populator);
+			Check.Argument(gridType, "gridType");
+			Check.Argument(populator, "populator");
+
+			_populators.Add(gridType, populator);
 		}
 
 		public FluentConfiguration<T> Setup<T>(Control grid)
 		{
-			Check.Self(grid, "grid");
+			Check.Argument(grid, "grid");
 
 			var config = new Configuration<T>();
 			
@@ -36,7 +38,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 
 		public void Initialise<T>(Control grid)
 		{
-			Check.Self(grid, "grid");
+			Check.Argument(grid, "grid");
 
 			var config = _grids[grid] as Configuration<T>;
 			var populator = _populators[grid.GetType()];
@@ -59,7 +61,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 
 		public void Populate<T>(Control grid, IEnumerable<T> collection)
 		{
-			Check.Self(grid, "grid");
+			Check.Argument(grid, "grid");
 
 			var config = _grids[grid] as Configuration<T>;
 			var populator = _populators[grid.GetType()];
