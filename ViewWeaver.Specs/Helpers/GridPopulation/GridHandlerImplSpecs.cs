@@ -14,7 +14,7 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation
 	public class When_passed_a_null_grid : GridHandlerImplSpec
 	{
 		Establish context = () => handler = new GridHandlerImpl();
-		Because of = () => handler.AddGridPopulator(typeof (String), null);
+		Because of = () => ex = Catch.Exception(() => handler.AddGridPopulator(typeof (String), null));
 		It should_throw_an_argument_null_exception = () => ex.ShouldBeOfType<ArgumentNullException>();
 	}
 

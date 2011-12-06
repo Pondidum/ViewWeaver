@@ -39,6 +39,7 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation
 	public class When_passed_a_type_with_one_public_readonly_property : ColumnMapperSpec<OnePublicReadonlyProperty>
 	{
 		Because of = () => mapping = ColumnMapper.Map<OnePublicReadonlyProperty>();
+
 		It should_return_one_mapping = () => mapping.Count.ShouldEqual(1);
 		It should_have_an_index_of_zero = () => mapping.First().Index.ShouldEqual(0);
 		It should_get_property_return_type = () => mapping.First().DataType.ShouldEqual(typeof (String));
