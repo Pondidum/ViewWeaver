@@ -53,6 +53,8 @@
     <Compile Include="EventHandlerNotFoundException.cs" />
     <Compile Include="Extensions\Check.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\IDictionaryExtensions.cs" />
+    <Compile Include="Extensions\IListExtensions.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapper.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapping.cs" />
     <Compile Include="Helpers\GridPopulation\Configuration.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Helpers\GridPopulation\GridHandlerImpl.cs" />
     <Compile Include="Helpers\GridPopulation\GridPopulators\DataGridViewPopulator.cs" />
     <Compile Include="Helpers\GridPopulation\IGridPopulator.cs" />
+    <Compile Include="Helpers\GridPopulation\MissingPopulatorException.cs" />
     <Compile Include="Interfaces\ILongAction.cs" />
     <Compile Include="Interfaces\IModalView.cs" />
     <Compile Include="Interfaces\ISubView.cs" />
