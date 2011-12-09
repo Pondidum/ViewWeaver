@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace ViewWeaver.Extensions
@@ -17,6 +18,16 @@ namespace ViewWeaver.Extensions
 			}
 
 			return result;
+		}
+
+		public static void ForEach<TKey, TValue>(this IDictionary<TKey, TValue> self, Action<KeyValuePair<TKey, TValue>> action)
+		{
+			Check.Self(self);
+
+			foreach (var value in self)
+			{
+				action(value);
+			}
 		}
 	}
 }

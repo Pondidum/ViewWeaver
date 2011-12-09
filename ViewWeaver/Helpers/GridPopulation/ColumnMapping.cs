@@ -14,7 +14,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 	{
 		public Func<T, Object> Populator { private get; set; }
 
-		public Object Populate(T item)
+		public Object GetValueFrom(T item)
 		{
 			return Populator.Invoke(item);
 		}

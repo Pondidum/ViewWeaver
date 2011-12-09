@@ -1,14 +1,17 @@
+using System;
+using System.Collections.Generic;
+
 namespace ViewWeaver.Helpers.GridPopulation
 {
 	public interface IGridPopulator
 	{
-		void ClearColumns(object grid);
-		void AddColumn(object grid, ColumnMapping mapping);
+		void ClearColumns(Object grid);
+		void AddColumn(Object grid, ColumnMapping mapping);
 
-		void ClearRows(object grid);
-		void AddRow(object grid, object rowData, params object[] columnData);
+		void ClearRows(Object grid);
+		void AddRow(Object grid, Object rowData, IDictionary<int, Object> columnData);
 
-		void BeginEdit(object grid);
-		void EndEdit(object grid);
+		void BeginEdit(Object grid);
+		void EndEdit(Object grid);
 	}
 }

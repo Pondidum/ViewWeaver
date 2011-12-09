@@ -18,20 +18,9 @@ namespace ViewWeaver.Helpers.GridPopulation
 			Handler.AddGridPopulator(type, populator);
 		}
 
-		public static FluentConfiguration<T> Setup<T>(Control grid)
+		public static void Populate<T>(Control grid, Configuration<T> config, IEnumerable<T> collection)
 		{
-			return Handler.Setup<T>(grid);
-		}
-
-
-		public static void Initialise<T>(Control grid)
-		{
-			Handler.Initialise<T>(grid);
-		}
-
-		public static void Populate<T>(Control grid, IEnumerable<T> collection)
-		{
-			Handler.Populate<T>(grid, collection);
+			Handler.Populate(grid, config, collection);
 		}
 
 	}

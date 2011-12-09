@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace ViewWeaver.Helpers.GridPopulation
 {
-	internal class Configuration
+	public class Configuration
 	{
 		public bool ClearOnPopulate { get; internal set; }
 		public bool InitialiseOnPopulate { get; internal set; }
@@ -14,7 +14,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 			SetDefaults();
 		}
 
-		public void SetDefaults()
+		internal void SetDefaults()
 		{
 			ClearOnPopulate = true;
 			InitialiseOnPopulate = false;
@@ -23,7 +23,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 		}
 	}
 
-	internal sealed class Configuration<T> : Configuration
+	public sealed class Configuration<T> : Configuration
 	{
 		public IList<ColumnMapping<T>> ColumnMappings { get; internal set; }
 

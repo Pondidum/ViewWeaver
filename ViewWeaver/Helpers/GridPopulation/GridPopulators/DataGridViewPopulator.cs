@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Helpers.GridPopulation.GridPopulators
 {
@@ -19,14 +21,14 @@ namespace ViewWeaver.Helpers.GridPopulation.GridPopulators
 			CellTypeMap[typeof(Enum)] = () => new DataGridViewComboBoxCell();
 		}
 
-		public void ClearColumns(object grid)
+		public void ClearColumns(Object grid)
 		{
 			var dgv = (DataGridView)grid;
 
 			dgv.Columns.Clear();
 		}
 
-		public void AddColumn(object grid, ColumnMapping mapping)
+		public void AddColumn(Object grid, ColumnMapping mapping)
 		{
 			var dgv = (DataGridView)grid;
 
@@ -42,33 +44,33 @@ namespace ViewWeaver.Helpers.GridPopulation.GridPopulators
 			dgv.Columns.Add(column);
 		}
 
-		public void ClearRows(object grid)
+		public void ClearRows(Object grid)
 		{
 			var dgv = (DataGridView)grid;
 
 			dgv.Rows.Clear();
 		}
 
-		public void AddRow(object grid, object rowData, params object[] columnData)
+		public void AddRow(Object grid, Object rowData, IDictionary<int, Object> columnData)
 		{
 			var dgv = (DataGridView)grid;
-
 			var row = new DataGridViewRow();
 			row.CreateCells(dgv);
-			row.SetValues(columnData);
+
+			columnData.ForEach(x => row.Cells[x.Key].Value = x.Value);
 			
 			row.Tag = rowData;
 
 			dgv.Rows.Add(row);
 		}
 
-		public void BeginEdit(object grid)
+		public void BeginEdit(Object grid)
 		{
 			var dgv = (DataGridView)grid;
 			dgv.SuspendLayout();
 		}
 
-		public void EndEdit(object grid)
+		public void EndEdit(Object grid)
 		{
 			var dgv = (DataGridView)grid;
 			dgv.ResumeLayout();
