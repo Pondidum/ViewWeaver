@@ -61,17 +61,11 @@ namespace ViewWeaver.Helpers.GridPopulation
 					populator.ClearColumns(grid);
 					config.ColumnMappings.ForEach(m => populator.AddColumn(grid, m));
 				}
-
-				var maxColumn = config.ColumnMappings.Max(m => m.Index);
-
+				
 				foreach (var current in collection)
 				{
-					var row = new object[maxColumn + 1];
-					
-					foreach (var mapping in config.ColumnMappings)
-					{
-						row[mapping.Index] = mapping.GetValueFrom(current);
-					}
+					var item = current;
+					var row = config.ColumnMappings.ToDictionary(x => x.Index, x => x.GetValueFrom(item));
 
 					populator.AddRow(grid, current, row);
 				}
