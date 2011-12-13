@@ -40,6 +40,9 @@
     <Reference Include="Machine.Specifications">
       <HintPath>..\..\sdk\compiled\Machine.Specifications.dll</HintPath>
     </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\sdk\compiled\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -58,7 +61,6 @@
     </Compile>
     <Compile Include="Helpers\ControlStateSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\FluentConfigurationSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs.cs" />
     <Compile Include="PresenterSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

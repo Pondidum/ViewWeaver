@@ -28,7 +28,7 @@ namespace ViewWeaver.Helpers.GridPopulation.GridPopulators
 			dgv.Columns.Clear();
 		}
 
-		public void AddColumn(Object grid, ColumnMapping mapping)
+		public void AddColumn<T>(Object grid, ColumnMapping<T> mapping)
 		{
 			var dgv = (DataGridView)grid;
 

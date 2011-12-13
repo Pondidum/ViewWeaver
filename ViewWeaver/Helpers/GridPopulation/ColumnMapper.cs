@@ -1,14 +1,12 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Helpers.GridPopulation
 {
-	internal class ColumnMapper
+	public class ColumnMapper
 	{
-		public static IList<ColumnMapping<T>> Map<T>()
+		public static ColumnMappingCollection<T> AutomapForType<T>()
 		{
 			var allProperties = typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public);
 			var readableProperties = allProperties.Where(p => p.CanRead &&
@@ -16,7 +14,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 															  p.GetGetMethod().IsPublic &&
 															  !p.GetIndexParameters().Any());
 
-			var map = new List<ColumnMapping<T>>();
+			var map = new ColumnMappingCollection<T>();
 
 			foreach (var property in readableProperties)
 			{
@@ -40,5 +38,19 @@ namespace ViewWeaver.Helpers.GridPopulation
 			return name;
 		}
 
+		public static ColumnMappingCollection<T> ForType<T>(params Action<FluentColumnMapping<T>>[] columns)
+		{
+			var collection = new ColumnMappingCollection<T>();
+
+			foreach (var fluentConfig in columns)
+			{
+				var config = new ColumnMapping<T>();
+				fluentConfig.Invoke(new FluentColumnMapping<T>(config));
+
+				collection.Add(config);
+			}
+
+			return collection;
+		}
 	}
 }

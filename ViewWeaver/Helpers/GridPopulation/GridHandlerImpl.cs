@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -16,56 +15,55 @@ namespace ViewWeaver.Helpers.GridPopulation
 			_populators = new Dictionary<Type, IGridPopulator>();
 		}
 
-		public void AddGridPopulator(Type gridType, IGridPopulator populator)
+		public void AddPopulator(Type gridType, IGridPopulator populator)
 		{
 			Check.Argument(gridType, "gridType");
 			Check.Argument(populator, "populator");
 
 			_populators.Add(gridType, populator);
 		}
-		/*
-				public FluentConfiguration<T> Setup<T>(Control grid)
-				{
-					Check.Argument(grid, "grid");
 
-					var config = new Configuration<T>();
-			
-					_grids[grid] = config;
-					return new FluentConfiguration<T>(config);
-				}
-		*/
-		public void Populate<T>(Control grid, Configuration<T> config, IEnumerable<T> collection)
+		public void ConfigureColumns<T>(Control grid, ColumnMappingCollection<T> mapping)
 		{
 			Check.Argument(grid, "grid");
-			Check.Argument(config, "config");
+			Check.Argument(mapping, "mapping");
+
+			var populator = _populators.GetOrDefault(grid.GetType());
+
+			if (populator == null)
+			{
+				throw new MissingPopulatorException(String.Format("No populator has been registered for {0} grids.", grid.GetType()));
+			}
+
+			populator.ClearColumns(grid);
+
+			foreach (var map in mapping)
+			{
+				populator.AddColumn(grid, map);
+			}
+		}
+
+		public void Populate<T>(Control grid, ColumnMappingCollection<T> mappings, IEnumerable<T> collection)
+		{
+			Check.Argument(grid, "grid");
+			Check.Argument(mappings, "mappings");
 			Check.Argument(collection, "collection");
 
 			var populator = _populators.GetOrDefault(grid.GetType());
 
 			if (populator == null)
 			{
-				throw new MissingPopulatorException();
+				throw new MissingPopulatorException(String.Format("No populator has been registered for {0} grids.", grid.GetType()));
 			}
 
 			try
 			{
 				populator.BeginEdit(grid);
-
-				if (config.ClearOnPopulate)
-				{
-					populator.ClearRows(grid);
-				}
-
-				if (config.InitialiseOnPopulate || (config.InitialiseOnFirstPopulate && !config.HasBeenPopulated))
-				{
-					populator.ClearColumns(grid);
-					config.ColumnMappings.ForEach(m => populator.AddColumn(grid, m));
-				}
 				
 				foreach (var current in collection)
 				{
 					var item = current;
-					var row = config.ColumnMappings.ToDictionary(x => x.Index, x => x.GetValueFrom(item));
+					var row = mappings.ToDictionary(x => x.Index, x => x.GetValueFrom(item));
 
 					populator.AddRow(grid, current, row);
 				}

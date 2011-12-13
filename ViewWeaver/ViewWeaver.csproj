@@ -57,8 +57,8 @@
     <Compile Include="Extensions\IListExtensions.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapper.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapping.cs" />
-    <Compile Include="Helpers\GridPopulation\Configuration.cs" />
-    <Compile Include="Helpers\GridPopulation\FluentConfiguration.cs" />
+    <Compile Include="Helpers\GridPopulation\ColumnMappingCollection.cs" />
+    <Compile Include="Helpers\GridPopulation\FluentColumnMapping.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandler.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImpl.cs" />
     <Compile Include="Helpers\GridPopulation\GridPopulators\DataGridViewPopulator.cs" />
