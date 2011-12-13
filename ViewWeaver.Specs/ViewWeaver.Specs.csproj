@@ -56,9 +56,15 @@
     <Compile Include="Extensions\CheckSpecs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Extensions\EnumExtensionSpecs.cs">
+    <Compile Include="TestData\FlagsTest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Extensions\EnumExtensions\AddSpecs.cs" />
+    <Compile Include="Extensions\EnumExtensions\HasAllSpecs.cs" />
+    <Compile Include="Extensions\EnumExtensions\HasAnySpecs.cs" />
+    <Compile Include="Extensions\EnumExtensions\HasSpecs.cs" />
+    <Compile Include="Extensions\EnumExtensions\RemoveSpecs.cs" />
+    <Compile Include="Extensions\IDictionarySpecs.cs" />
     <Compile Include="Helpers\ControlStateSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs.cs" />

@@ -54,7 +54,6 @@
     <Compile Include="Extensions\Check.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
-    <Compile Include="Extensions\IListExtensions.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapper.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapping.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMappingCollection.cs" />
