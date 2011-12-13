@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-
 //https://github.com/DarthFubuMVC/fubucore/blob/master/src/FubuCore/Util/Cache.cs
 
+namespace ViewWeaver
+{
 	[Serializable]
 	public class Cache<TKey, TValue> : IEnumerable<TValue>
 	{
@@ -16,10 +17,10 @@ using System.Linq;
 
 		private Action<TValue> _onAddition = x => { };
 		private Func<TKey, TValue> _onMissing = delegate(TKey key)
-		{
-			string message = string.Format("Key '{0}' could not be found", key);
-			throw new KeyNotFoundException(message);
-		};
+													{
+														string message = string.Format("Key '{0}' could not be found", key);
+														throw new KeyNotFoundException(message);
+													};
 
 		public Cache()
 			: this(new Dictionary<TKey, TValue>())
@@ -207,3 +208,4 @@ using System.Linq;
 			return new Dictionary<TKey, TValue>(_values);
 		}
 	}
+}

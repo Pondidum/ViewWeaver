@@ -1,6 +1,6 @@
 namespace ViewWeaver.Interfaces
 {
-    public interface  IView
-    {
-    }
+	public interface IView
+	{
+	}
 }

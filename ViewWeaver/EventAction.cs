@@ -1,4 +1,4 @@
 namespace ViewWeaver
 {
-    public delegate void EventAction();
+	public delegate void EventAction();
 }

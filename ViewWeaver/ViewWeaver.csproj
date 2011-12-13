@@ -69,7 +69,6 @@
     <Compile Include="Interfaces\ISubView.cs" />
     <Compile Include="Interfaces\IView.cs" />
     <Compile Include="Helpers\ControlState.cs" />
-    <Compile Include="InvalidConfigurationException.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

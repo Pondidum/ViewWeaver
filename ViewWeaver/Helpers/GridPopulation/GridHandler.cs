@@ -27,19 +27,5 @@ namespace ViewWeaver.Helpers.GridPopulation
 		{
 			Handler.Populate(grid, config, collection);
 		}
-		/*
-		public static ColumnMappingCollection<T> CreateConfiguration<T>(params Action<FluentConfiguration<T>>[] columnOption)
-		{
-			var configuration = new ColumnMappingCollection<T>();
-
-			foreach (var option in columnOption)
-			{
-				configuration.Add(option.Invoke(new FluentConfiguration<T>()));
-			}
-			configOptions.Invoke(new FluentConfiguration<T>(configuration));
-
-			return configuration;
-		}*/
-
 	}
 }
