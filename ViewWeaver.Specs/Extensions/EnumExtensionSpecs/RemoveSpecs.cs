@@ -2,9 +2,9 @@ using Machine.Specifications;
 using ViewWeaver.Specs.TestData;
 using ViewWeaver.Extensions;
 
-namespace ViewWeaver.Specs.Extensions.EnumExtensions
+namespace ViewWeaver.Specs.Extensions.EnumExtensionSpecs
 {
-	class RemoveSpecs
+	public class RemoveSpecs
 	{
 		public class RemoveSpecBase : SpecBase
 		{

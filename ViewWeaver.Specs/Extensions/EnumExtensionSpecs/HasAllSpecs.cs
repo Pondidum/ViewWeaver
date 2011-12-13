@@ -2,9 +2,9 @@ using Machine.Specifications;
 using ViewWeaver.Specs.TestData;
 using ViewWeaver.Extensions;
 
-namespace ViewWeaver.Specs.Extensions.EnumExtensions
+namespace ViewWeaver.Specs.Extensions.EnumExtensionSpecs
 {
-	class HasAllSpecs
+	public class HasAllSpecs
 	{
 		public class HasAllSpecBase : SpecBase
 		{

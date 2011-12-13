@@ -53,18 +53,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\CheckSpecs.cs">
+    <Compile Include="Extensions\CheckSpecs\CheckSpecs.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Extensions\CheckSpecs\SelfSpecs.cs" />
+    <Compile Include="Extensions\CheckSpecs\CollectionSpecs.cs" />
+    <Compile Include="Extensions\CheckSpecs\EnumSpecs.cs" />
+    <Compile Include="Extensions\IDictionarySpecs\ForEachSpecs.cs" />
+    <Compile Include="Extensions\IDictionarySpecs\GetOrDefaultSpecs.cs" />
     <Compile Include="TestData\FlagsTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Extensions\EnumExtensions\AddSpecs.cs" />
-    <Compile Include="Extensions\EnumExtensions\HasAllSpecs.cs" />
-    <Compile Include="Extensions\EnumExtensions\HasAnySpecs.cs" />
-    <Compile Include="Extensions\EnumExtensions\HasSpecs.cs" />
-    <Compile Include="Extensions\EnumExtensions\RemoveSpecs.cs" />
-    <Compile Include="Extensions\IDictionarySpecs.cs" />
+    <Compile Include="Extensions\EnumExtensionSpecs\AddSpecs.cs" />
+    <Compile Include="Extensions\EnumExtensionSpecs\HasAllSpecs.cs" />
+    <Compile Include="Extensions\EnumExtensionSpecs\HasAnySpecs.cs" />
+    <Compile Include="Extensions\EnumExtensionSpecs\HasSpecs.cs" />
+    <Compile Include="Extensions\EnumExtensionSpecs\RemoveSpecs.cs" />
     <Compile Include="Helpers\ControlStateSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs.cs" />
