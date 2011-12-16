@@ -23,6 +23,7 @@ namespace ViewWeaver.Extensions
 		public static void ForEach<TKey, TValue>(this IDictionary<TKey, TValue> self, Action<KeyValuePair<TKey, TValue>> action)
 		{
 			Check.Self(self);
+			Check.Argument(action, "action");
 
 			foreach (var value in self)
 			{

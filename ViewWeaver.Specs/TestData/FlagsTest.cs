@@ -1,6 +1,4 @@
 ﻿using System;
-using Machine.Specifications;
-using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Specs.TestData
 {

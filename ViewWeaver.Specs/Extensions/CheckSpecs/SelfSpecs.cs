@@ -4,9 +4,8 @@ using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Specs.Extensions.CheckSpecs
 {
-	public class SelfSpecs
+	namespace SelfSpecs
 	{
-
 		public class When_passed_a_null_value : CheckSpecBase
 		{
 			Because of = () => ex = Catch.Exception(() => Check.Self(null));

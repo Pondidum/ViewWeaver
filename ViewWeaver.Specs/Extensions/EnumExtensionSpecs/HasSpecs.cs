@@ -4,7 +4,7 @@ using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Specs.Extensions.EnumExtensionSpecs
 {
-	public class HasSpecs
+	namespace HasSpecs
 	{
 		public class HasSpecBase : SpecBase
 		{
