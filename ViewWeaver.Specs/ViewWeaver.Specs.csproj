@@ -66,6 +66,8 @@
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\MapForTypeSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\PopulatedBySpecs.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\TitledSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\ControlStateSpecs\ControlStateSpecBase.cs" />
+    <Compile Include="Helpers\GridPopulation\ControlStateSpecs\GetStateSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\AtIndexSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\FluentColumnMappingSpecBase.cs" />
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\NamedSpecs.cs" />
@@ -80,7 +82,7 @@
     <Compile Include="Extensions\EnumExtensionSpecs\HasAnySpecs.cs" />
     <Compile Include="Extensions\EnumExtensionSpecs\HasSpecs.cs" />
     <Compile Include="Extensions\EnumExtensionSpecs\RemoveSpecs.cs" />
-    <Compile Include="Helpers\ControlStateSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\ControlStateSpecs\SetStateSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\AutomapForTypeSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\PopulateSpecs.cs" />
     <Compile Include="PresenterSpecs.cs" />
