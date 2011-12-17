@@ -61,8 +61,14 @@
     <Compile Include="Extensions\CheckSpecs\EnumSpecs.cs" />
     <Compile Include="Extensions\IDictionarySpecs\ForEachSpecs.cs" />
     <Compile Include="Extensions\IDictionarySpecs\GetOrDefaultSpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecBase.cs" />
+    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\ColumnMapperSpecBase.cs" />
+    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\IsTypedSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\MapForTypeSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\PopulatedBySpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\TitledSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\AtIndexSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\FluentColumnMappingSpecBase.cs" />
+    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\NamedSpecs.cs" />
     <Compile Include="TestData\Classes\TwoPublicReadonlyProperties.cs" />
     <Compile Include="TestData\FlagsTest.cs">
       <SubType>Code</SubType>

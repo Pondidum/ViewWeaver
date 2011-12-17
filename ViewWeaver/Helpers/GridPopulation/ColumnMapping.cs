@@ -9,7 +9,7 @@ namespace ViewWeaver.Helpers.GridPopulation
 		public String Title { get; set; }
 		public Type DataType { get; set; }
 
-		public Func<T, Object> Populator { private get; set; }
+		public Func<T, Object> Populator { internal get; set; }
 
 		public Object GetValueFrom(T item)
 		{
