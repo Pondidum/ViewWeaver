@@ -1,9 +1,8 @@
 using Machine.Specifications;
-using ViewWeaver.Specs.Helpers.GridPopulation.FluentColumnMappingSpecs;
 
-namespace ViewWeaver.Specs.Helpers.GridPopulation.ColumnMapperSpecs
+namespace ViewWeaver.Specs.Helpers.GridPopulation.FluentColumnMappingSpecs
 {
-	namespace PopulatedBySpecs
+	namespace PopulatedBy
 	{
 		public class When_passed_a_value : FluentColumnMappingSpecBase
 		{

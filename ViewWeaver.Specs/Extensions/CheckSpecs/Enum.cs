@@ -4,7 +4,7 @@ using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Specs.Extensions.CheckSpecs
 {
-	namespace EnumSpecs
+	namespace Enum
 	{
 		public class When_passed_an_enum : CheckSpecBase
 		{

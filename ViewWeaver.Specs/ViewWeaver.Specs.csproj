@@ -56,35 +56,35 @@
     <Compile Include="Extensions\CheckSpecs\CheckSpecBase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Extensions\CheckSpecs\SelfSpecs.cs" />
-    <Compile Include="Extensions\CheckSpecs\CollectionSpecs.cs" />
-    <Compile Include="Extensions\CheckSpecs\EnumSpecs.cs" />
-    <Compile Include="Extensions\IDictionarySpecs\ForEachSpecs.cs" />
-    <Compile Include="Extensions\IDictionarySpecs\GetOrDefaultSpecs.cs" />
+    <Compile Include="Extensions\CheckSpecs\Self.cs" />
+    <Compile Include="Extensions\CheckSpecs\Collection.cs" />
+    <Compile Include="Extensions\CheckSpecs\Enum.cs" />
+    <Compile Include="Extensions\IDictionarySpecs\ForEach.cs" />
+    <Compile Include="Extensions\IDictionarySpecs\GetOrDefault.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\ColumnMapperSpecBase.cs" />
-    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\IsTypedSpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\MapForTypeSpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\PopulatedBySpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\TitledSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\IsTypedSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\MapForType.cs" />
+    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\PopulatedBy.cs" />
+    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\Titled.cs" />
     <Compile Include="Helpers\GridPopulation\ControlStateSpecs\ControlStateSpecBase.cs" />
-    <Compile Include="Helpers\GridPopulation\ControlStateSpecs\GetStateSpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\AtIndexSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\ControlStateSpecs\GetState.cs" />
+    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\AtIndex.cs" />
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\FluentColumnMappingSpecBase.cs" />
-    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\NamedSpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\AddPopulatorSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\Named.cs" />
+    <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\AddPopulator.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\GridHandlerImplSpecBase.cs" />
     <Compile Include="TestData\Classes\TwoPublicReadonlyProperties.cs" />
     <Compile Include="TestData\FlagsTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Extensions\EnumExtensionSpecs\AddSpecs.cs" />
-    <Compile Include="Extensions\EnumExtensionSpecs\HasAllSpecs.cs" />
-    <Compile Include="Extensions\EnumExtensionSpecs\HasAnySpecs.cs" />
-    <Compile Include="Extensions\EnumExtensionSpecs\HasSpecs.cs" />
-    <Compile Include="Extensions\EnumExtensionSpecs\RemoveSpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\ControlStateSpecs\SetStateSpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\AutomapForTypeSpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\PopulateSpecs.cs" />
+    <Compile Include="Extensions\EnumExtensionSpecs\Add.cs" />
+    <Compile Include="Extensions\EnumExtensionSpecs\HasAll.cs" />
+    <Compile Include="Extensions\EnumExtensionSpecs\HasAny.cs" />
+    <Compile Include="Extensions\EnumExtensionSpecs\Has.cs" />
+    <Compile Include="Extensions\EnumExtensionSpecs\Remove.cs" />
+    <Compile Include="Helpers\GridPopulation\ControlStateSpecs\SetState.cs" />
+    <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\AutomapForType.cs" />
+    <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\Populate.cs" />
     <Compile Include="PresenterSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecBase.cs" />

@@ -1,10 +1,8 @@
 using Machine.Specifications;
-using ViewWeaver.Helpers.GridPopulation;
-using ViewWeaver.Specs.TestData.Classes;
 
 namespace ViewWeaver.Specs.Helpers.GridPopulation.FluentColumnMappingSpecs
 {
-	namespace NamedSpecs
+	namespace Named
 	{
 		public class When_passed_a_value : FluentColumnMappingSpecBase
 		{

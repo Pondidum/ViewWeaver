@@ -6,7 +6,7 @@ using It = Machine.Specifications.It;
 
 namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 {
-	namespace AddPopulatorSpecs
+	namespace AddPopulator
 	{
 		public class When_adding_grid_populator_is_passed_a_null_populator : GridHandlerImplSpecBase
 		{

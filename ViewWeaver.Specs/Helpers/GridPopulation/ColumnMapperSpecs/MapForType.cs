@@ -6,7 +6,7 @@ using ViewWeaver.Specs.TestData.Classes;
 
 namespace ViewWeaver.Specs.Helpers.GridPopulation.ColumnMapperSpecs
 {
-	namespace ForTypeSpecs
+	namespace ForType
 	{
 
 		public class When_passed_no_parameters : ColumnMapperSpecBase<OnePublicProperty>

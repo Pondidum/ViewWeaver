@@ -5,7 +5,7 @@ using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Specs.Extensions.IDictionarySpecs
 {
-	namespace GetOrDefaultSpecs
+	namespace GetOrDefault
 	{
 		public class GetOrDefaultSpecBase : SpecBase
 		{

@@ -8,15 +8,19 @@ using It = Machine.Specifications.It;
 
 namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 {
-	namespace PopulateSpecs
+	namespace Populate
 	{
-		public class When_populate_is_passed_a_null_grid : GridHandlerImplSpecBase
+		public class PopulateSpecBase :GridHandlerImplSpecBase
 		{
 			Establish context = () =>
 			{
 				handler = new GridHandlerImpl();
 				handler.AddPopulator(typeof(Control), Mock.Of<IGridPopulator>());
 			};
+		}
+
+		public class When_populate_is_passed_a_null_grid : PopulateSpecBase
+		{
 			Because of = () => ex = Catch.Exception(() => handler.Populate(null,
 																		   Mock.Of<ColumnMappingCollection<String>>(),
 																		   Enumerable.Empty<String>()));
@@ -24,13 +28,8 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 			It should_throw_an_argument_null_exception = () => ex.ShouldBeOfType<ArgumentNullException>();
 		}
 
-		public class When_populate_is_passed_a_null_configuration : GridHandlerImplSpecBase
+		public class When_populate_is_passed_a_null_configuration : PopulateSpecBase
 		{
-			Establish context = () =>
-			{
-				handler = new GridHandlerImpl();
-				handler.AddPopulator(typeof(Control), Mock.Of<IGridPopulator>());
-			};
 			Because of = () => ex = Catch.Exception(() => handler.Populate(new Control(),
 																		   null,
 																		   Enumerable.Empty<String>()));
@@ -38,13 +37,8 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 			It should_throw_an_argument_null_exception = () => ex.ShouldBeOfType<ArgumentNullException>();
 		}
 
-		public class When_populate_is_passed_a_null_collection : GridHandlerImplSpecBase
+		public class When_populate_is_passed_a_null_collection : PopulateSpecBase
 		{
-			Establish context = () =>
-			{
-				handler = new GridHandlerImpl();
-				handler.AddPopulator(typeof(Control), Mock.Of<IGridPopulator>());
-			};
 			Because of = () => ex = Catch.Exception(() => handler.Populate(new Control(),
 																		   Mock.Of<ColumnMappingCollection<String>>(),
 																		   null));

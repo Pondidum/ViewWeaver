@@ -4,7 +4,7 @@ using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Specs.Extensions.CheckSpecs
 {
-	namespace SelfSpecs
+	namespace Self
 	{
 		public class When_passed_a_null_value : CheckSpecBase
 		{

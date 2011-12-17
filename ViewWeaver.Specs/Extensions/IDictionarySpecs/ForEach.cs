@@ -5,7 +5,7 @@ using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Specs.Extensions.IDictionarySpecs
 {
-	namespace ForEachSpecs
+	namespace ForEach
 	{
 		public class ForEachSpecBase : SpecBase
 		{

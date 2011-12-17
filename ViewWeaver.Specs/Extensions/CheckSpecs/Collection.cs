@@ -5,7 +5,7 @@ using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Specs.Extensions.CheckSpecs
 {
-	namespace CollectionSpecs
+	namespace Collection
 	{
 		public class When_passed_a_null_value : CheckSpecBase
 		{

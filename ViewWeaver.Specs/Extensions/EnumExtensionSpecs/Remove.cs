@@ -4,7 +4,7 @@ using ViewWeaver.Extensions;
 
 namespace ViewWeaver.Specs.Extensions.EnumExtensionSpecs
 {
-	namespace RemoveSpecs
+	namespace Remove
 	{
 		public class RemoveSpecBase : SpecBase
 		{
