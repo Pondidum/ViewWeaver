@@ -69,6 +69,8 @@
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\AtIndexSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\FluentColumnMappingSpecBase.cs" />
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\NamedSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\AddPopulatorSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\GridHandlerImplSpecBase.cs" />
     <Compile Include="TestData\Classes\TwoPublicReadonlyProperties.cs" />
     <Compile Include="TestData\FlagsTest.cs">
       <SubType>Code</SubType>
@@ -80,7 +82,7 @@
     <Compile Include="Extensions\EnumExtensionSpecs\RemoveSpecs.cs" />
     <Compile Include="Helpers\ControlStateSpecs.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\AutomapForTypeSpecs.cs" />
-    <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\PopulateSpecs.cs" />
     <Compile Include="PresenterSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecBase.cs" />
