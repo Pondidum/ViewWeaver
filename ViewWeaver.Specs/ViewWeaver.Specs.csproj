@@ -62,7 +62,7 @@
     <Compile Include="Extensions\IDictionarySpecs\ForEach.cs" />
     <Compile Include="Extensions\IDictionarySpecs\GetOrDefault.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\ColumnMapperSpecBase.cs" />
-    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\IsTypedSpecs.cs" />
+    <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\IsTyped.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\MapForType.cs" />
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\PopulatedBy.cs" />
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\Titled.cs" />
@@ -74,6 +74,7 @@
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\AddPopulator.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\GridHandlerImplSpecBase.cs" />
     <Compile Include="TestData\Classes\TwoPublicReadonlyProperties.cs" />
+    <Compile Include="TestData\Collections\ThrowingEnumerable.cs" />
     <Compile Include="TestData\FlagsTest.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +95,7 @@
     <Compile Include="TestData\Classes\OnePublicProperty.cs" />
     <Compile Include="TestData\Classes\OnePublicReadonlyProperty.cs" />
     <Compile Include="TestData\Classes\OnePublicWriteonlyProperty.cs" />
+    <Compile Include="TestData\Structures\OnePublicField.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ViewWeaver\ViewWeaver.csproj">

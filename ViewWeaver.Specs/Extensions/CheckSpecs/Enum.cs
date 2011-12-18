@@ -1,6 +1,7 @@
 ﻿using System;
 using Machine.Specifications;
 using ViewWeaver.Extensions;
+using ViewWeaver.Specs.TestData.Structures;
 
 namespace ViewWeaver.Specs.Extensions.CheckSpecs
 {
@@ -14,13 +15,9 @@ namespace ViewWeaver.Specs.Extensions.CheckSpecs
 
 		public class When_passed_a_structure : CheckSpecBase
 		{
-			Because of = () => ex = Catch.Exception(() => Check.Enum(new Test()));
+			Because of = () => ex = Catch.Exception(() => Check.Enum(new OnePublicField()));
 			It should_throw_an_argument_exception = () => ex.ShouldBeOfType<ArgumentException>();
 		}
 
-		internal struct Test
-		{
-			public String Value;
-		}
 	}
 }
