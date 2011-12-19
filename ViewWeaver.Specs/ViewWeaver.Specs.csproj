@@ -72,6 +72,7 @@
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\FluentColumnMappingSpecBase.cs" />
     <Compile Include="Helpers\GridPopulation\FluentColumnMappingSpecs\Named.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\AddPopulator.cs" />
+    <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\ConfigureColumns.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\GridHandlerImplSpecBase.cs" />
     <Compile Include="TestData\Classes\TwoPublicReadonlyProperties.cs" />
     <Compile Include="TestData\Collections\ThrowingEnumerable.cs" />
