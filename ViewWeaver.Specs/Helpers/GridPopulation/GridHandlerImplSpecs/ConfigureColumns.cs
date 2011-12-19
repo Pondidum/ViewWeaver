@@ -4,6 +4,7 @@ using Machine.Specifications;
 using Moq;
 using ViewWeaver.Helpers.GridPopulation;
 using It = Machine.Specifications.It;
+using Arg = Moq.It;
 
 namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 {
@@ -54,10 +55,10 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 		{
 			Because of = () => handler.ConfigureColumns(grid, mapping);
 
-			It should_call_clear_columns = () => populator.Verify(x => x.ClearColumns(Moq.It.IsAny<Control>()), 
+			It should_call_clear_columns = () => populator.Verify(x => x.ClearColumns(Arg.IsAny<Control>()), 
 																  Times.Once());
 
-			It should_not_call_add_column = () => populator.Verify(x => x.AddColumn(Moq.It.IsAny<Control>(), Moq.It.IsAny<ColumnMapping<String>>()), 
+			It should_not_call_add_column = () => populator.Verify(x => x.AddColumn(Arg.IsAny<Control>(), Arg.IsAny<ColumnMapping<String>>()), 
 																   Times.Never());
 		}
 
@@ -66,8 +67,8 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 			Establish context = () => mapping.Add(new ColumnMapping<String>());
 			Because of = () => handler.ConfigureColumns(grid, mapping);
 
-			It should_call_add_column_once = () => populator.Verify(x => x.AddColumn(Moq.It.IsAny<Control>(), 
-																					 Moq.It.IsAny<ColumnMapping<String>>()), 
+			It should_call_add_column_once = () => populator.Verify(x => x.AddColumn(Arg.IsAny<Control>(), 
+																					 Arg.IsAny<ColumnMapping<String>>()), 
 																   Times.Once());
 		}
 	}

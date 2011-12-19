@@ -7,6 +7,7 @@ using Moq;
 using ViewWeaver.Helpers.GridPopulation;
 using ViewWeaver.Specs.TestData.Collections;
 using It = Machine.Specifications.It;
+using Arg = Moq.It;
 
 namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 {
@@ -106,14 +107,14 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 		{
 			Because of = () => handler.Populate(grid, mapping, new List<String> { "First" });
 
-			It should_call_add_row_once = () => populator.Verify(x => x.AddRow(Moq.It.IsAny<Control>(),
-																			   Moq.It.IsAny<Object>(),
-																			   Moq.It.IsAny<IDictionary<int, Object>>()),
+			It should_call_add_row_once = () => populator.Verify(x => x.AddRow(Arg.IsAny<Control>(),
+																			   Arg.IsAny<Object>(),
+																			   Arg.IsAny<IDictionary<int, Object>>()),
 																 Times.Once());
 
-			It should_call_with_values = () => populator.Verify(x => x.AddRow(Moq.It.IsAny<Control>(),
-																			  Moq.It.Is<Object>(a => (String)a == "First"),
-																			  Moq.It.Is<IDictionary<int, Object>>(a => a.Count == 0)),
+			It should_call_with_values = () => populator.Verify(x => x.AddRow(Arg.IsAny<Control>(),
+																			  Arg.Is<Object>(a => (String)a == "First"),
+																			  Arg.Is<IDictionary<int, Object>>(a => a.Count == 0)),
 																Times.Once());
 		}
 
@@ -126,14 +127,14 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 
 			};
 
-			It should_call_add_row_once = () => populator.Verify(x => x.AddRow(Moq.It.IsAny<Control>(),
-																			   Moq.It.IsAny<Object>(),
-																			   Moq.It.IsAny<IDictionary<int, Object>>()),
+			It should_call_add_row_once = () => populator.Verify(x => x.AddRow(Arg.IsAny<Control>(),
+																			   Arg.IsAny<Object>(),
+																			   Arg.IsAny<IDictionary<int, Object>>()),
 																 Times.Once());
 
-			It should_call_with_one_value = () => populator.Verify(x => x.AddRow(Moq.It.IsAny<Control>(),
-																				 Moq.It.Is<Object>(a => (String)a == "First"),
-																				 Moq.It.Is<IDictionary<int, Object>>(a => (String)a.Single().Value == "Testing")));
+			It should_call_with_one_value = () => populator.Verify(x => x.AddRow(Arg.IsAny<Control>(),
+																				 Arg.Is<Object>(a => (String)a == "First"),
+																				 Arg.Is<IDictionary<int, Object>>(a => (String)a.Single().Value == "Testing")));
 
 		}
 
