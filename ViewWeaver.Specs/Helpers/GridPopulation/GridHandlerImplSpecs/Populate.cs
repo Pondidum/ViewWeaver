@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Machine.Specifications;
@@ -26,7 +27,7 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 			It should_throw_an_argument_null_exception = () => ex.ShouldBeOfType<ArgumentNullException>();
 		}
 
-		public class When_passed_a_null_configuration : GridHandlerImplSpecBase
+		public class When_passed_a_null_mapping : GridHandlerImplSpecBase
 		{
 			Establish context = () =>
 			{
@@ -68,7 +69,7 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 
 		public class PopulatorSpecBase : GridHandlerImplSpecBase
 		{
-			protected static  Mock<IGridPopulator> populator;
+			protected static Mock<IGridPopulator> populator;
 			protected static ColumnMappingCollection<String> mapping;
 			protected static Control grid;
 
@@ -82,7 +83,6 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 				mapping = Mock.Of<ColumnMappingCollection<String>>();
 				grid = new Control();
 			};
-
 		}
 
 		public class When_called_with_an_empty_collection : PopulatorSpecBase
@@ -100,6 +100,41 @@ namespace ViewWeaver.Specs.Helpers.GridPopulation.GridHandlerImplSpecs
 			It should_throw_a_not_supported_exception = () => ex.ShouldBeOfType<NotSupportedException>();
 			It should_call_begin_edit = () => populator.Verify(x => x.BeginEdit(grid), Times.Once());
 			It should_call_end_edit = () => populator.Verify(x => x.EndEdit(grid), Times.Once());
+		}
+
+		public class When_called_with_no_mappings_and_a_single_item_collection : PopulatorSpecBase
+		{
+			Because of = () => handler.Populate(grid, mapping, new List<String> { "First" });
+
+			It should_call_add_row_once = () => populator.Verify(x => x.AddRow(Moq.It.IsAny<Control>(),
+																			   Moq.It.IsAny<Object>(),
+																			   Moq.It.IsAny<IDictionary<int, Object>>()),
+																 Times.Once());
+
+			It should_call_with_values = () => populator.Verify(x => x.AddRow(Moq.It.IsAny<Control>(),
+																			  Moq.It.Is<Object>(a => (String)a == "First"),
+																			  Moq.It.Is<IDictionary<int, Object>>(a => a.Count == 0)),
+																Times.Once());
+		}
+
+		public class When_called_with_a_mapping_and_a_single_item_collection : PopulatorSpecBase
+		{
+			Because of = () =>
+			{
+				mapping.Add(new ColumnMapping<String> { Populator = s => "Testing" });
+				handler.Populate(grid, mapping, new List<String> { "First" });
+
+			};
+
+			It should_call_add_row_once = () => populator.Verify(x => x.AddRow(Moq.It.IsAny<Control>(),
+																			   Moq.It.IsAny<Object>(),
+																			   Moq.It.IsAny<IDictionary<int, Object>>()),
+																 Times.Once());
+
+			It should_call_with_one_value = () => populator.Verify(x => x.AddRow(Moq.It.IsAny<Control>(),
+																				 Moq.It.Is<Object>(a => (String)a == "First"),
+																				 Moq.It.Is<IDictionary<int, Object>>(a => (String)a.Single().Value == "Testing")));
+
 		}
 
 	}
