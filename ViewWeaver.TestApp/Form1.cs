@@ -19,7 +19,7 @@ namespace ViewWeaver.TestApp
 		{
 			InitializeComponent();
 			_mapping = ColumnMapper.AutomapForType<Product>();
-			_mapping = ColumnMapper.ForType<Product>(x => x.Named("test").AtIndex(3));
+			//_mapping = ColumnMapper.ForType<Product>(x => x.Named("test").AtIndex(3));
 		}
 
 		private void btnRegister_Click(object sender, EventArgs e)
