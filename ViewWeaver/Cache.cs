@@ -8,7 +8,7 @@ using System.Linq;
 namespace ViewWeaver
 {
 	[Serializable]
-	public class Cache<TKey, TValue> : IEnumerable<TValue>
+	internal class Cache<TKey, TValue> : IEnumerable<TValue>
 	{
 		private readonly object _locker = new object();
 		private readonly IDictionary<TKey, TValue> _values;
