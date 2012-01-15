@@ -1,8 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Machine.Specifications;
 using ViewWeaver.Interfaces;
+using ViewWeaver.Specs.TestData.Interfaces;
 
 namespace ViewWeaver.Specs
 {
@@ -75,18 +75,13 @@ namespace ViewWeaver.Specs
 	}
 
 
-	public interface IViewNoEvents : IView { }
 
-	public class ViewNoEvents : IViewNoEvents { }
-
-
-
-	public interface IViewOneEvent : IView
+	public class ViewNoEvents : IEmpty
 	{
-		event EventAction ButtonClicked;
+		
 	}
 
-	public class ViewOneEvent : IViewOneEvent
+	public class ViewOneEvent : IOneEvent
 	{
 		public event EventAction ButtonClicked;
 
@@ -101,21 +96,7 @@ namespace ViewWeaver.Specs
 		}
 	}
 
-	public class PresenterOnePrivateHandler : Presenter<IViewOneEvent>
-	{
-		public PresenterOnePrivateHandler(IViewOneEvent view) : base(view) { }
-		private void OnButtonClicked() { }
-	}
-
-	public class PresenterOnePublicHandler : Presenter<IViewOneEvent>
-	{
-		public PresenterOnePublicHandler(IViewOneEvent view) : base(view) { }
-		public void OnButtonClicked() { }
-	}
-
-
-
-	public class ViewTwoEvents : IViewOneEvent
+	public class ViewTwoEvents : IOneEvent
 	{
 		public event EventAction ButtonClicked;
 		public event EventAction NotDefinedInInterface;
@@ -133,9 +114,23 @@ namespace ViewWeaver.Specs
 		}
 	}
 
-	public class PresenterTwoHandlers : Presenter<IViewOneEvent>
+
+
+	public class PresenterOnePrivateHandler : Presenter<IOneEvent>
 	{
-		public PresenterTwoHandlers(IViewOneEvent view) : base(view) { }
+		public PresenterOnePrivateHandler(IOneEvent view) : base(view) { }
+		private void OnButtonClicked() { }
+	}
+
+	public class PresenterOnePublicHandler : Presenter<IOneEvent>
+	{
+		public PresenterOnePublicHandler(IOneEvent view) : base(view) { }
+		public void OnButtonClicked() { }
+	}
+
+	public class PresenterTwoHandlers : Presenter<IOneEvent>
+	{
+		public PresenterTwoHandlers(IOneEvent view) : base(view) { }
 
 		private void OnButtonClicked() { }
 		private void OnNotDefinedInInterface() { }

@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventAutoWirerSpecs\AutoWirerSpecs.cs" />
     <Compile Include="Extensions\CheckSpecs\CheckSpecBase.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -74,6 +75,8 @@
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\AddPopulator.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\ConfigureColumns.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\GridHandlerImplSpecBase.cs" />
+    <Compile Include="TestData\Interfaces\IOneEvent.cs" />
+    <Compile Include="TestData\Interfaces\IInterfaceEmpty.cs" />
     <Compile Include="TestData\Classes\TwoPublicReadonlyProperties.cs" />
     <Compile Include="TestData\Collections\ThrowingEnumerable.cs" />
     <Compile Include="TestData\FlagsTest.cs">
