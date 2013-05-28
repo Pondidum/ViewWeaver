@@ -1,4 +1,5 @@
 using System;
+using System.Windows.Forms;
 
 namespace ViewWeaver.TestApp
 {
@@ -8,6 +9,9 @@ namespace ViewWeaver.TestApp
 
 		event EventAction OkClicked;
 		event EventAction CancelClicked;
+
+		DialogResult ShowDialog();
+		void Close();
 	}
 
 }

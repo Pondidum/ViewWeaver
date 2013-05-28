@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Annotations.cs" />
+    <Compile Include="AutoPresenter.cs" />
     <Compile Include="Cache.cs" />
     <Compile Include="EventAction.cs" />
     <Compile Include="EventAutoWirer.cs" />

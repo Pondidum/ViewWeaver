@@ -1,32 +1,24 @@
-using System;
-
 namespace ViewWeaver.TestApp
 {
-	public class TestPresenter : IDisposable
+	public class TestPresenter : AutoPresenter<ITestView>
 	{
-		private readonly ITestView _view;
-		private readonly EventAutoWirer<ITestView> _autoWirer;
-
-		public TestPresenter(ITestView view)
+		public TestPresenter(ITestView view) : base(view)
 		{
-			_view = view;
-			_autoWirer = new EventAutoWirer<ITestView>(view, this);
-			_autoWirer.Wire();
+		}
+
+		public void Display()
+		{
+			View.ShowDialog();
 		}
 
 		private void OnOkClicked()
 		{
-			
+			View.Close();
 		}
 
 		private void OnCancelClicked()
 		{
-			
-		}
-
-		public void Dispose()
-		{
-			_autoWirer.Unwire();
+			View.Close();
 		}
 	}
 }
