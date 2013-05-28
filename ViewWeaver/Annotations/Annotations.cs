@@ -16,7 +16,7 @@
 
 using System;
 
-namespace ViewWeaver
+namespace ViewWeaver.Annotations
 {
 	/// <summary>
 	/// Indicates that marked element should be localized or not.

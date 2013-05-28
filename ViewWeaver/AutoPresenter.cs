@@ -1,4 +1,5 @@
 ﻿using System;
+using ViewWeaver.Annotations;
 
 namespace ViewWeaver
 {
