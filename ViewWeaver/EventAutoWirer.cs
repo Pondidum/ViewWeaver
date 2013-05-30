@@ -83,7 +83,7 @@ namespace ViewWeaver
 
 			if (!presenterEventHandlers.ContainsKey(handlerName))
 			{
-				throw new EventHandlerNotFoundException(eventInfo.Name, handlerName, _presenter.GetType().FullName);
+				throw new MissingEventHandlerException(eventInfo.Name, handlerName, _presenter.GetType().FullName);
 			}
 
 			return presenterEventHandlers[handlerName];

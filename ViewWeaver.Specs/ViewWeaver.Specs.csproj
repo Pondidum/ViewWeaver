@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventAutoWirerSpecs\AutoWirerSpecBase.cs" />
     <Compile Include="EventAutoWirerSpecs\AutoWirerSpecs.cs" />
     <Compile Include="Extensions\CheckSpecs\CheckSpecBase.cs">
       <SubType>Code</SubType>
@@ -79,8 +80,6 @@
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\AddPopulator.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\ConfigureColumns.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\GridHandlerImplSpecBase.cs" />
-    <Compile Include="TestData\Interfaces\IOneEvent.cs" />
-    <Compile Include="TestData\Interfaces\IInterfaceEmpty.cs" />
     <Compile Include="TestData\Classes\TwoPublicReadonlyProperties.cs" />
     <Compile Include="TestData\Collections\ThrowingEnumerable.cs" />
     <Compile Include="TestData\FlagsTest.cs">
@@ -94,7 +93,6 @@
     <Compile Include="Helpers\GridPopulation\ControlStateSpecs\SetState.cs" />
     <Compile Include="Helpers\GridPopulation\ColumnMapperSpecs\AutomapForType.cs" />
     <Compile Include="Helpers\GridPopulation\GridHandlerImplSpecs\Populate.cs" />
-    <Compile Include="PresenterSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecBase.cs" />
     <Compile Include="TestData\Classes\NoMembers.cs" />
@@ -103,6 +101,14 @@
     <Compile Include="TestData\Classes\OnePublicProperty.cs" />
     <Compile Include="TestData\Classes\OnePublicReadonlyProperty.cs" />
     <Compile Include="TestData\Classes\OnePublicWriteonlyProperty.cs" />
+    <Compile Include="TestData\Mvp\EmptyView.cs" />
+    <Compile Include="TestData\Mvp\EmptyPresenter.cs" />
+    <Compile Include="TestData\Mvp\IEmptyView.cs" />
+    <Compile Include="TestData\Mvp\IOneEventView.cs" />
+    <Compile Include="TestData\Mvp\NoEventPresenter.cs" />
+    <Compile Include="TestData\Mvp\OneDefinedEventView.cs" />
+    <Compile Include="TestData\Mvp\OneEventPresenter.cs" />
+    <Compile Include="TestData\Mvp\OneEventView.cs" />
     <Compile Include="TestData\Structures\OnePublicField.cs" />
   </ItemGroup>
   <ItemGroup>
