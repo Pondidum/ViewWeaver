@@ -3,7 +3,7 @@ bin
 *.ReSharper.user
 _ReSharper.*
 *.resharper
-*.sln.DotSettings.user
+*.sln.DotSettings*
 *.csproj.user
 *.vbproj.user
 *.suo

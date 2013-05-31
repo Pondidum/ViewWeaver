@@ -85,4 +85,20 @@ namespace ViewWeaver.Specs.EventAutoWirerSpecs
 		It should_throw_a_missing_handler_exception = () => ex.ShouldBeOfType<MissingEventHandlerException>();
 	}
 
+	public class When_unwiring_events : AutoWirerSpecBase<IOneEventView>
+	{
+		private static OneEventPresenter presenter;
+
+		Establish context = () =>
+			{
+				view = new OneEventView();
+				presenter = new OneEventPresenter();
+				eventHook = new EventAutoWirer<IOneEventView>(view, presenter);
+				eventHook.Wire();
+			};
+
+		Because of = () => eventHook.Unwire();
+
+		It should_remove_subsciptions_to_events = () => ((OneEventView) view).SaveSubscribers().Count().ShouldEqual(0);
+	}
 }
