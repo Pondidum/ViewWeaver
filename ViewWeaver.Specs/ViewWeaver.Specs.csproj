@@ -57,8 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventAutoWirerSpecs\AutoWirerSpecBase.cs" />
-    <Compile Include="EventAutoWirerSpecs\AutoWirerSpecs.cs" />
+    <Compile Include="EventMapperSpecs\EventMapperSpecBase.cs" />
+    <Compile Include="EventMapperSpecs\EventMapperSpecs.cs" />
     <Compile Include="Extensions\CheckSpecs\CheckSpecBase.cs">
       <SubType>Code</SubType>
     </Compile>

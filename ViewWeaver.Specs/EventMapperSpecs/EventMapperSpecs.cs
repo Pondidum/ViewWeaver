@@ -4,18 +4,18 @@ using Machine.Specifications;
 using ViewWeaver.Interfaces;
 using ViewWeaver.Specs.TestData.Mvp;
 
-namespace ViewWeaver.Specs.EventAutoWirerSpecs
+namespace ViewWeaver.Specs.EventMapperSpecs
 {
 	public class When_passed_a_null_view : AutoWirerSpecBase<IEmptyView>
 	{
-		Because of = () => ex = Catch.Exception(() => eventHook = new EventAutoWirer<IEmptyView>(null, new EmptyPresenter()));
+		Because of = () => ex = Catch.Exception(() => eventHook = new EventMapper<IEmptyView>(null, new EmptyPresenter()));
 
 		It should_throw_a_null_argument_exception = () => ex.ShouldBeOfType<ArgumentNullException>();
 	}
 
 	public class When_passed_a_null_presenter : AutoWirerSpecBase<IEmptyView>
 	{
-		Because of = () => ex = Catch.Exception(() => eventHook = new EventAutoWirer<IEmptyView>(new EmptyView(), null));
+		Because of = () => ex = Catch.Exception(() => eventHook = new EventMapper<IEmptyView>(new EmptyView(), null));
 
 		It should_throw_a_null_argument_exception = () => ex.ShouldBeOfType<ArgumentNullException>();
 	}
@@ -28,7 +28,7 @@ namespace ViewWeaver.Specs.EventAutoWirerSpecs
 		{
 			view = new EmptyView();
 			presenter = new EmptyPresenter();
-			eventHook = new EventAutoWirer<IEmptyView>(view, presenter);
+			eventHook = new EventMapper<IEmptyView>(view, presenter);
 		};
 
 		Because of = () => ex = Catch.Exception(() => eventHook.Wire());
@@ -44,7 +44,7 @@ namespace ViewWeaver.Specs.EventAutoWirerSpecs
 		{
 			view = new OneEventView();
 			presenter = new OneEventPresenter();
-			eventHook = new EventAutoWirer<IOneEventView>(view, presenter);
+			eventHook = new EventMapper<IOneEventView>(view, presenter);
 		};
 
 		Because of = () => ex = Catch.Exception(() => eventHook.Wire());
@@ -60,7 +60,7 @@ namespace ViewWeaver.Specs.EventAutoWirerSpecs
 		{
 			view = new OneDefinedEventView();
 			presenter = new OneEventPresenter();
-			eventHook = new EventAutoWirer<IOneEventView>(view, presenter);
+			eventHook = new EventMapper<IOneEventView>(view, presenter);
 		};
 
 		Because of = () => ex = Catch.Exception(() => eventHook.Wire());
@@ -77,7 +77,7 @@ namespace ViewWeaver.Specs.EventAutoWirerSpecs
 		{
 			view = new OneEventView();
 			presenter = new NoEventPresenter();
-			eventHook = new EventAutoWirer<IOneEventView>(view, presenter);
+			eventHook = new EventMapper<IOneEventView>(view, presenter);
 		};
 
 		Because of = () => ex = Catch.Exception(() => eventHook.Wire());
@@ -93,7 +93,7 @@ namespace ViewWeaver.Specs.EventAutoWirerSpecs
 			{
 				view = new OneEventView();
 				presenter = new OneEventPresenter();
-				eventHook = new EventAutoWirer<IOneEventView>(view, presenter);
+				eventHook = new EventMapper<IOneEventView>(view, presenter);
 				eventHook.Wire();
 			};
 

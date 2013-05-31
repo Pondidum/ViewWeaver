@@ -6,7 +6,7 @@ using ViewWeaver.Extensions;
 
 namespace ViewWeaver
 {
-	public class EventAutoWirer<TView>
+	public class EventMapper<TView>
 	{
 		private readonly TView _view;
 		private readonly Object _presenter;
@@ -14,7 +14,7 @@ namespace ViewWeaver
 
 		public const string HandlerPrefix = "On";
 
-		public EventAutoWirer(TView view, Object presenter)
+		public EventMapper(TView view, Object presenter)
 		{
 			Check.Argument(view, "view");
 			Check.Argument(presenter, "presenter");
